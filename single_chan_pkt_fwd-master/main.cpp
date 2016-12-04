@@ -526,7 +526,7 @@ void receivepacket() {
 			
 			printf("Nicht B64 codiert: %s\n", (char *)message);
 			
-			printf("Test
+			printf("Test %d\n", (char *)message);
 			
 		
 			
