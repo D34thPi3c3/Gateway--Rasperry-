@@ -1,11 +1,13 @@
 #include <stdio.h>
 
+void itoh(int a);
+
 int main(){
 	while(1){
 		int zahl;
 		printf('Geben sie eine Zahl zwischen 0 und 1024 ein: \n');
 		scanf("%d", &zahl);
-		if(a>1024){
+		if(zahl>1024){
 			printf('Die Zahl ist grösser als 1024 \n');
 		}
 		else{
@@ -30,17 +32,17 @@ void itoh(int a){
 	
 	int fourbit;
 	char send[100];
-	int zsave=a[2];
+	int zsave=a;
 	
 	for(int i=0; i<3; i++){
 		if(i==0){
-			fourbit = 0b0000000000001111&zsave;
+			fourbit = 0b0000000000000011&(zsave>>8);
 		}
 		if(i==1){
 			fourbit = 0b0000000000001111&(zsave>>4);
 		}
 		if(i==2){
-			fourbit = 0b0000000000000011&(zsave>>8);
+			fourbit = 0b0000000000001111&(zsave);
 		}
 	
 	switch(fourbit){
@@ -112,8 +114,8 @@ void itoh(int a){
 			printf("Sollte nicht möglich sein das wert über 15 ist.");
 			break;
 	}
-	printf("%s\n",send[i]);
-	printf("%s\n",*send);
+	printf("%c\n",send[i]);
+	printf("%s\n",(char*)send);
 	//printf("%X \n", a[i]);
 	}
 }
