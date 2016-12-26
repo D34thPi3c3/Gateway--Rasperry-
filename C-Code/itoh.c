@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-void itoh(int a);
+char* itoh(int a);
 
 int main(){
 	while(1){
@@ -11,25 +11,16 @@ int main(){
 			printf("Die Zahl ist grösser als 1024 \n");
 		}
 		else{
+			char *p;
 			itoh(zahl);
+			printf("Die zurückgekommene Hexzahl ist: %s \n", (char*)p);
 		}
 	}
 }
 
 
-void itoh(int a){
-//	int a[8] = {672, 162, 1002, 580, 918, 187, 309, 465};
-//	int zsave;
-//	int count = 0;
-	
-//	if(count == 0){
-//		zsave[0] = a[0]+(0b1111110000000000&(a[1]>>10));
-//		zsave[1] = (0b0000000000001111&(a[1]<<6))+(0b0000111111111100&(a[2]>>4))+(0b0000000000000011&(a[3]>>14));
-//		zsave
-		
-//		count++;
-//	}
-	
+char* itoh(int a){
+
 	int fourbit;
 	char send[100];
 	int zsave=a;
@@ -118,4 +109,6 @@ void itoh(int a){
 	printf("%s\n",(char*)send);
 	//printf("%X \n", a[i]);
 	}
+	
+	return send;
 }
