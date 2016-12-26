@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 main(){
-	uint16_t a[8] = {672, 162, 1002, 580, 918, 187, 309, 465};
-	uint16_t zsave;
+	int a[8] = {672, 162, 1002, 580, 918, 187, 309, 465};
+	int zsave;
 	int count = 0;
 	
 //	if(count == 0){
@@ -13,7 +13,7 @@ main(){
 //		count++;
 //	}
 	
-	uint8_t=fourbit;
+	int fourbit;
 	char send[100];
 	zsave=a[2];
 	
@@ -94,9 +94,10 @@ main(){
 		break;
 		
 		default:
-			printf("Sollte nicht möglich sein das wert über 15 ist.")
+			printf("Sollte nicht möglich sein das wert über 15 ist.");
 			break;
 	}
-	printf(send[i]);
+	printf("%s\n",send[i]);
+	printf("%X \n", a[i]);
 	}
 }
