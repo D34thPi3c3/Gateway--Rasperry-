@@ -17,7 +17,7 @@ main(){
 	char send[100];
 	zsave=a[2];
 	
-	for(int i=0; i<2; i++){
+	for(int i=0; i<3; i++){
 		if(i==0){
 			fourbit = 0b0000000000001111&zsave;
 		}
@@ -30,67 +30,67 @@ main(){
 	
 	switch(fourbit){
 		case 0: 
-		send[i]=0;
+		send[i]='0';
 		break;
 		
 		case 1:
-		send[i]=1;
+		send[i]='1';
 		break;
 		
 		case 2:
-		send[i]=2;
+		send[i]='2';
 		break;
 		
 		case 3:
-		send[i]=3;
+		send[i]='3';
 		break;
 		
 		case 4:
-		send[i]=4;
+		send[i]='4';
 		break;
 		
 		case 5:
-		send[i]=5;
+		send[i]='5';
 		break;
 		
 		case 6:
-		send[i]=6;
+		send[i]='6';
 		break;
 		
 		case 7:
-		send[i]=7;
+		send[i]='7';
 		break;
 		
 		case 8:
-		send[i]=8;
+		send[i]='8';
 		break;
 		
 		case 9:
-		send[i]=9;
+		send[i]='9';
 		break;
 		
 		case 10:
-		send[i]="A";
+		send[i]='A';
 		break;
 		
 		case 11:
-		send[i]="B";
+		send[i]='B';
 		break;
 		
 		case 12:
-		send[i]="C";
+		send[i]='C';
 		break;
 		
 		case 13:
-		send[i]="D";
+		send[i]='D';
 		break;
 		
 		case 14:
-		send[i]="E";
+		send[i]='E';
 		break;
 		
 		case 15:
-		send[i]="F";
+		send[i]='F';
 		break;
 		
 		default:
@@ -98,6 +98,7 @@ main(){
 			break;
 	}
 	printf("%s\n",send[i]);
-	printf("%X \n", a[i]);
+	printf("%s\n",*send);
+	//printf("%X \n", a[i]);
 	}
 }
