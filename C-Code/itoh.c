@@ -11,8 +11,8 @@ int main(){
 			printf("Die Zahl ist grösser als 1024 \n");
 		}
 		else{
-			char *p;
-			itoh(zahl);
+			char* p;
+			p = itoh(zahl);
 			printf("Die zurückgekommene Hexzahl ist: %s \n", (char*)p);
 		}
 	}
