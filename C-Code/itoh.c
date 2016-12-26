@@ -5,10 +5,10 @@ void itoh(int a);
 int main(){
 	while(1){
 		int zahl;
-		printf('Geben sie eine Zahl zwischen 0 und 1024 ein: \n');
+		printf("Geben sie eine Zahl zwischen 0 und 1024 ein: \n");
 		scanf("%d", &zahl);
 		if(zahl>1024){
-			printf('Die Zahl ist grösser als 1024 \n');
+			printf("Die Zahl ist grösser als 1024 \n");
 		}
 		else{
 			itoh(zahl);
