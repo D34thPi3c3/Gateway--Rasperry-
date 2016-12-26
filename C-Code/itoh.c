@@ -22,7 +22,7 @@ int main(){
 char* itoh(int a){
 
 	int fourbit;
-	char send[100];
+	static char send[100];
 	int zsave=a;
 	
 	for(int i=0; i<3; i++){
