@@ -1,9 +1,24 @@
 #include <stdio.h>
 
-main(){
-	int a[8] = {672, 162, 1002, 580, 918, 187, 309, 465};
-	int zsave;
-	int count = 0;
+int main(){
+	while(1){
+		int zahl;
+		printf('Geben sie eine Zahl zwischen 0 und 1024 ein: \n');
+		scanf("%d", &zahl);
+		if(a>1024){
+			printf('Die Zahl ist grösser als 1024 \n');
+		}
+		else{
+			itoh(zahl);
+		}
+	}
+}
+
+
+void itoh(int a){
+//	int a[8] = {672, 162, 1002, 580, 918, 187, 309, 465};
+//	int zsave;
+//	int count = 0;
 	
 //	if(count == 0){
 //		zsave[0] = a[0]+(0b1111110000000000&(a[1]>>10));
@@ -15,7 +30,7 @@ main(){
 	
 	int fourbit;
 	char send[100];
-	zsave=a[2];
+	int zsave=a[2];
 	
 	for(int i=0; i<3; i++){
 		if(i==0){
