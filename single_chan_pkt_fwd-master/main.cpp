@@ -162,6 +162,8 @@ static char description[64] = "";                        /* used for free form d
 #define TX_BUFF_SIZE  2048
 #define STATUS_SIZE	  1024
 
+
+
 void die(const char *s)
 {
     perror(s);
@@ -531,10 +533,12 @@ void receivepacket() {
 		
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-			
+			int docnumber = 0;
 			int i = 0;
 			int mdez = 0;
+			int hvar = 0;
 			int z = 0;
+			File *f;
 			while(message[i]!='\0'){
 			
 			char hchar = message[i];
@@ -610,9 +614,13 @@ void receivepacket() {
 			}
 			*/
 			
-			mdez = (((int)hchar>>4)&0b00001111);
 			int hvar1, hvar2, hvar3, result;
-			
+			if(hvar == 0){
+				hvar = 1;
+			}
+			else{
+			mdez = (((int)hchar>>4)&0b00001111);
+			printf("Zahl: %d", mdez);
 			switch(z%3){
 				case 0:
 				hvar1 = mdez*256;
@@ -626,31 +634,46 @@ void receivepacket() {
 				hvar3 = mdez*1;
 				result = hvar1+hvar2+hvar3;
 				printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
+				if(f = fopen("~/cortus/beispiel.txt","a")==NULL){
+					if(f = fopen("~/cortus/beispiel.txt","w")==NULL){
+						printf("Datei kann nicht geschrieben werden");
+					}
+				}
+				fprintf(f, "%d\n", result);
+				f = fclose;
 				break;
 			}
 			z++;
+			}
 			
 			mdez = ((int)hchar&0b00001111);
+			printf("Zahl: %d", mdez);
 			switch(z%3){
 				case 0:
-				hvar1 = mdez*256;
+				hvar1 = mdez*16;
 				break;
 				
 				case 1:
-				hvar2 = mdez*16;
+				hvar2 = mdez*256;
 				break;
 				
 				case 2:
 				hvar3 = mdez*1;
 				result = hvar1+hvar2+hvar3;
 				printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
+				if(f = fopen("~/cortus/beispiel.txt","a")==NULL){
+					if(f = fopen("~/cortus/beispiel.txt","w")==NULL){
+						printf("Datei kann nicht geschrieben werden");
+					}
+				}
+				fprintf(f, "%d\n", result);
+				f = fclose;
 				break;
 			}
 			
 			z++;
 			i++;
 			}
-			
 			
 			
 			
