@@ -529,7 +529,112 @@ void receivepacket() {
 			printf("Test %d\n", (char *)message);
 			
 		
+			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
+			int i = 0;
+			int mdez;
+			while(message[i]!='\0'){
+			
+			char letter
+			
+			switch(letter){
+				case '0':
+				mdez = 0;
+				break;
+				
+				case '1':	
+				mdez = 1;
+				break;
+				
+				case '2':
+				mdez = 2;
+				break;
+				
+				case '3':
+				mdez = 3;
+				break;
+				
+				case '4':
+				mdez = 4;
+				break;
+				
+				case '5':
+				mdez = 5;
+				break;
+				
+				case '6':
+				mdez = 6;
+				break;
+				
+				case '7':
+				mdez = 7;
+				break;
+				
+				case '8':
+				mdez = 8;
+				break;
+				
+				case '9':
+				mdez = 9;
+				break;
+				
+				case 'A':
+				mdez = 10;
+				break;
+				
+				case 'B':
+				mdez = 11;
+				break;
+				
+				case 'C':
+				mdez = 12;
+				break;
+				
+				case 'D':
+				mdez = 13;
+				break;
+				
+				case 'E':
+				mdez = 14;
+				break;
+				
+				case 'F':
+				mdez = 15;
+				break;
+				
+				default:
+				printf("Irgendetwas stimmt nicht mit den empfangenen Daten");
+				break;
+			}
+			
+			int hvar1, hvar2, hvar3, result;
+			
+			switch(i%3){
+				case 0:
+				hvar1 = mdez*256;
+				break;
+				
+				case 1:
+				hvar2 = mdez*16;
+				break;
+				
+				case 2:
+				hvar3 = mdez*1;
+				result = hvar1+hvar2+hvar3;
+				printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result)
+				break
+			}
+			
+			i++;
+			}
+			
+			
+			
+			
+			
+			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
             //send the messages
             sendudp(buff_up, buff_index);

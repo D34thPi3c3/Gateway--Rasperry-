@@ -1,22 +1,35 @@
 #include <stdio.h>
 
 char* itoh(int a);
+int zaehler;
+
 
 int main(){
 	while(1){
-		int zahl;
-		printf("Geben sie eine Zahl zwischen 0 und 1024 ein: \n");
-		scanf("%d", &zahl);
-		if(zahl>1024){
-			printf("Die Zahl ist grösser als 1024 \n");
-		}
-		else{
-			char* p;
-			p = itoh(zahl);
-			printf("Die zurückgekommene Hexzahl ist: %s \n", (char*)p);
-		}
+		
+		
+		
 	}
 }
+
+int Messung(void){
+	
+	itoh(getADC);
+	
+	
+}
+
+int getADC(void){
+	zaehler++;
+	
+	if(zaehler > 1023){
+		zaehler = 0;
+	}
+	
+	return zaehler;
+	
+}
+
 
 
 char* itoh(int a){
@@ -105,8 +118,8 @@ char* itoh(int a){
 			printf("Sollte nicht möglich sein das wert über 15 ist.");
 			break;
 	}
-	printf("%c\n",send[i]);
-	printf("%s\n",(char*)send);
+	//printf("%c\n",send[i]);
+	//printf("%s\n",(char*)send);
 	//printf("%X \n", a[i]);
 	}
 	
