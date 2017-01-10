@@ -534,13 +534,11 @@ void receivepacket() {
 			
 			int i = 0;
 			int mdez = 0;
+			int z = 0;
 			while(message[i]!='\0'){
 			
-			char letter = message[i];
-			
-			printf("Buchstabe: %c" letter);
-			
-			
+			char hchar = message[i];
+			/*
 			switch(letter){
 				case '0':
 				mdez = 0;
@@ -610,10 +608,30 @@ void receivepacket() {
 				printf("Irgendetwas stimmt nicht mit den empfangenen Daten");
 				break;
 			}
+			*/
 			
+			mdez = (((int)hchar>>4)&0b00001111);
 			int hvar1, hvar2, hvar3, result;
 			
-			switch(i%3){
+			switch(z%3){
+				case 0:
+				hvar1 = mdez*256;
+				break;
+				
+				case 1:
+				hvar2 = mdez*16;
+				break;
+				
+				case 2:
+				hvar3 = mdez*1;
+				result = hvar1+hvar2+hvar3;
+				printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
+				break;
+			}
+			z++;
+			
+			mdez = ((int)hchar&0b00001111);
+			switch(z%3){
 				case 0:
 				hvar1 = mdez*256;
 				break;
@@ -629,6 +647,7 @@ void receivepacket() {
 				break;
 			}
 			
+			z++;
 			i++;
 			}
 			
