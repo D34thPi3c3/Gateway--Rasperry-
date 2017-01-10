@@ -526,17 +526,20 @@ void receivepacket() {
 			
 			printf("Nicht B64 codiert: %s\n", (char *)message);
 			
-			printf("Test %d\n", (char *)message);
+			//printf("Test %d\n", (char *)message);
 			
 		
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 			
 			int i = 0;
-			int mdez;
+			int mdez = 0;
 			while(message[i]!='\0'){
 			
-			char letter
+			char letter = message[i];
+			
+			printf("Buchstabe: %c" letter);
+			
 			
 			switch(letter){
 				case '0':
@@ -622,8 +625,8 @@ void receivepacket() {
 				case 2:
 				hvar3 = mdez*1;
 				result = hvar1+hvar2+hvar3;
-				printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result)
-				break
+				printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
+				break;
 			}
 			
 			i++;
