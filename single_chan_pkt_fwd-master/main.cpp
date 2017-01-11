@@ -650,11 +650,11 @@ void receivepacket() {
 			printf("Zahl: %d", mdez);
 			switch(z%3){
 				case 0:
-				hvar1 = mdez*16;
+				hvar1 = mdez*256;
 				break;
 				
 				case 1:
-				hvar2 = mdez*256;
+				hvar2 = mdez*16;
 				break;
 				
 				case 2:
