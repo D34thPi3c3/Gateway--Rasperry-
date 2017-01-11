@@ -538,7 +538,7 @@ void receivepacket() {
 			int mdez = 0;
 			int hvar = 0;
 			int z = 0;
-			File *f;
+			FILE *f;
 			while(message[i]!='\0'){
 			
 			char hchar = message[i];
@@ -634,13 +634,13 @@ void receivepacket() {
 				hvar3 = mdez*1;
 				result = hvar1+hvar2+hvar3;
 				printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
-				if(f = fopen("~/cortus/beispiel.txt","a")==NULL){
-					if(f = fopen("~/cortus/beispiel.txt","w")==NULL){
+				if((f = fopen("/home/pi/beispiel.txt","a"))==NULL){
+					if((f = fopen("/home/pi/cortus/beispiel.txt","w"))==NULL){
 						printf("Datei kann nicht geschrieben werden");
 					}
 				}
 				fprintf(f, "%d\n", result);
-				f = fclose;
+				fclose(f);
 				break;
 			}
 			z++;
@@ -661,13 +661,13 @@ void receivepacket() {
 				hvar3 = mdez*1;
 				result = hvar1+hvar2+hvar3;
 				printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
-				if(f = fopen("~/cortus/beispiel.txt","a")==NULL){
-					if(f = fopen("~/cortus/beispiel.txt","w")==NULL){
+				if((f = fopen("/home/pi/cortus/beispiel.txt","a"))==NULL){
+					if((f = fopen("/home/pi/cortus/beispiel.txt","w"))==NULL){
 						printf("Datei kann nicht geschrieben werden");
 					}
 				}
 				fprintf(f, "%d\n", result);
-				f = fclose;
+				fclose(f);
 				break;
 			}
 			
