@@ -700,7 +700,8 @@ void receivepacket() {
 			}
 			
 			//printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
-			if(result[rhelp]==1280){
+			if(result[rhelp]==1297){
+				printf("Juhu bis hierhin komme ich\n")
 				char buffer[200];
 				int n;
 				
@@ -715,7 +716,8 @@ void receivepacket() {
 						printf("Datei kann nicht geschrieben werden");
 				}
 				}
-				for(int a = 0; result[a]!=1280; a++){
+				for(int a = 0; result[a]!=1297; a++){
+					printf("Noch besser. ")
 					fprintf(f, "%d\n", result[a]);
 				}
 				fclose(f);
