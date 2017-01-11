@@ -547,7 +547,7 @@ void receivepacket() {
 			
 			
 			FILE *f;
-			while(message[i]!='\0'){
+			while(message[i]!='\0'&&result[rhelp]!=1297){
 			
 			char hchar = message[i];
 			/*
@@ -701,7 +701,7 @@ void receivepacket() {
 			
 			//printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
 			if(result[rhelp]==1297){
-				printf("Juhu bis hierhin komme ich\n")
+				printf("Juhu bis hierhin komme ich\n");
 				char buffer[200];
 				int n;
 				
@@ -717,7 +717,7 @@ void receivepacket() {
 				}
 				}
 				for(int a = 0; result[a]!=1297; a++){
-					printf("Noch besser. ")
+					printf("Noch besser. ");
 					fprintf(f, "%d\n", result[a]);
 				}
 				fclose(f);
