@@ -701,13 +701,14 @@ void receivepacket() {
 			
 			//printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
 			if(result[rhelp]==1280){
-				char buffer[200]
+				char buffer[200];
+				int n;
 				
 				time_t t = time(NULL);
 				struct tm tm = *localtime(&t);
 
 				printf("now: %d-%d-%d %d:%d:%d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
-				sprintf(buffer, "/home/pi/cortus/ffd/messung%d%d%d%d%d%d.txt", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+				n=sprintf(buffer, "/home/pi/cortus/ffd/messung%d%d%d%d%d%d.txt", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
 				
 				if((f = fopen(buffer,"a"))==NULL){
 					if((f = fopen(buffer,"w"))==NULL){
