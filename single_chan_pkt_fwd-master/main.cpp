@@ -547,7 +547,7 @@ void receivepacket() {
 			
 			
 			FILE *f;
-			while((result[rhelp]!=1553)&&(result[rhelp]!=1297)){
+			while((result[rhelp]!=1553)&&(result[rhelp]!=1297)&&(z<=99)){
 			
 			char hchar = message[i];
 			/*
