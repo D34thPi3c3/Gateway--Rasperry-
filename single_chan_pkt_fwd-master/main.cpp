@@ -547,7 +547,7 @@ void receivepacket() {
 			
 			
 			FILE *f;
-			while(message[i]!='\0'&&result[rhelp]!=1297){
+			while(/*message[i]!='\0'*/(result[rhelp]!=0x611)&&(result[rhelp]!=1297)){
 			
 			char hchar = message[i];
 			/*
@@ -643,7 +643,7 @@ void receivepacket() {
 				case 2:
 				hvar3 = mdez*1;
 				result[rhelp] = hvar1+hvar2+hvar3;
-				if(result[rhelp]==1297){
+				if((result[rhelp]==0x611)||(result[rhelp]==1297)){
 					rhelp--;
 				}
 				rhelp++;
@@ -678,7 +678,7 @@ void receivepacket() {
 				case 2:
 				hvar3 = mdez*1;
 				result[rhelp] = hvar1+hvar2+hvar3;
-				if(result[rhelp]==1297){
+				if((result[rhelp]==0x611)||(result[rhelp]==1297)){
 					rhelp--;
 				}
 				rhelp++;
@@ -700,6 +700,10 @@ void receivepacket() {
 			}
 			
 			//printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
+			if(result[rhelp]!=0x611){
+				rhelp--;
+			}
+			
 			if(result[rhelp]==1297){
 				printf("Juhu bis hierhin komme ich\n");
 				char buffer[200];
