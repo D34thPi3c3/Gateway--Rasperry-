@@ -643,7 +643,7 @@ void receivepacket() {
 				case 2:
 				hvar3 = mdez*1;
 				result[rhelp] = hvar1+hvar2+hvar3;
-				if(result[rhelp]==1280){
+				if(result[rhelp]==1297){
 					rhelp--;
 				}
 				rhelp++;
@@ -678,7 +678,7 @@ void receivepacket() {
 				case 2:
 				hvar3 = mdez*1;
 				result[rhelp] = hvar1+hvar2+hvar3;
-				if(result[rhelp]==1280){
+				if(result[rhelp]==1297){
 					rhelp--;
 				}
 				rhelp++;
@@ -721,6 +721,7 @@ void receivepacket() {
 					fprintf(f, "%d\n", result[a]);
 				}
 				fclose(f);
+				rhelp = 0;
 			}
 			
 			
