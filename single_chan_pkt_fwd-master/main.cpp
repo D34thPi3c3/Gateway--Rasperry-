@@ -692,6 +692,7 @@ void receivepacket() {
 						
 			if(result[rhelp]==1297){
 				printf("Juhu bis hierhin komme ich\n");
+				printf("Das Resultat ist%d\n", result[rhelp])
 				char buffer[200];
 				int n;
 				
