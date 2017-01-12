@@ -57,7 +57,7 @@ uint32_t cp_up_pkt_fwd;
 enum sf_t { SF7=7, SF8, SF9, SF10, SF11, SF12 };
 
 //
-int result[10000];
+int result[10000]={};
 int rhelp = 0;
 //int docnumber = 0;
 
@@ -692,7 +692,7 @@ void receivepacket() {
 						
 			if(result[rhelp]==1297){
 				printf("Juhu bis hierhin komme ich\n");
-				printf("Das Resultat ist%d\n", result[rhelp])
+				printf("Das Resultat ist%d\n", result[rhelp]);
 				char buffer[200];
 				int n;
 				
@@ -707,10 +707,15 @@ void receivepacket() {
 						printf("Datei kann nicht geschrieben werden");
 				}
 				}
-				for(int a = 0; result[a]!=1297; a++){
+				int a;
+				for(a = 0; result[a]!=1297; a++){
 					printf("Noch besser. ");
 					fprintf(f, "%d\n", result[a]);
+					resultat[a] = 0;
 				}
+				a++;
+				resultat[a] = 0;
+				
 				fclose(f);
 				rhelp = 0;
 			}
