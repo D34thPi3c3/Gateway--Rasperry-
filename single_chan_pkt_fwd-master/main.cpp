@@ -625,10 +625,10 @@ void receivepacket() {
 			
 			
 			
-			if(hvar == 0){
-				hvar = 1;
-			}
-			else{
+			//if(hvar == 0){
+			//	hvar = 1;
+			//}
+			//else{
 			mdez = (((int)hchar>>4)&0b00001111);
 			printf("Zahl: %d", mdez);
 			switch(z%3){
@@ -654,7 +654,7 @@ void receivepacket() {
 			}
 			
 			z++;
-			}
+			
 			
 			mdez = ((int)hchar&0b00001111);
 			printf("Zahl: %d", mdez);
@@ -711,10 +711,10 @@ void receivepacket() {
 				for(a = 0; result[a]!=1297; a++){
 					printf("Noch besser. ");
 					fprintf(f, "%d\n", result[a]);
-					resultat[a] = 0;
+					result[a] = 0;
 				}
 				a++;
-				resultat[a] = 0;
+				result[a] = 0;
 				
 				fclose(f);
 				rhelp = 0;
