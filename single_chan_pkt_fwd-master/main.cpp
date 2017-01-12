@@ -644,9 +644,6 @@ void receivepacket() {
 				hvar3 = mdez*1;
 				result[rhelp] = hvar1+hvar2+hvar3;
 				if((result[rhelp]==1553)||(result[rhelp]==1297)){
-					if(result[rhelp]==1553){
-						result[rhelp] == 0;
-					}
 					rhelp--;
 				}
 				rhelp++;
@@ -682,9 +679,6 @@ void receivepacket() {
 				hvar3 = mdez*1;
 				result[rhelp] = hvar1+hvar2+hvar3;
 				if((result[rhelp]==1553)||(result[rhelp]==1297)){
-					if(result[rhelp]==1553){
-						result[rhelp] == 0;
-					}
 					rhelp--;
 				}
 				rhelp++;
@@ -703,6 +697,10 @@ void receivepacket() {
 			
 			z++;
 			i++;
+			}
+			
+			if(result[rhelp]==1553){
+				result[rhelp] == 0;
 			}
 			
 			//printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
