@@ -713,8 +713,11 @@ void receivepacket() {
 					fprintf(f, "%d\n", result[a]);
 					result[a] = 0;
 				}
-				a++;
-				result[a] = 0;
+				reuslt[a] = 0;
+				for(a; a<=30; a++){
+					a++;
+					result[a] = 0;
+				}
 				
 				fclose(f);
 				rhelp = 0;
