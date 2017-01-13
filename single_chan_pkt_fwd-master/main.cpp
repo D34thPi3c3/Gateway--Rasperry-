@@ -709,10 +709,13 @@ void receivepacket() {
 				}
 				int a;
 				for(a = 0; result[a]!=1297; a++){
-					printf("Noch besser. ");
 					fprintf(f, "%d\n", result[a]);
 					result[a] = 0;
 				}
+				printf("Empfang abgeschlossen und erfolgreich gespeichert\n");
+				string command = "python home/pi/python/uploader.py";
+				system(command.c_str());
+				printf("Senden erfolgreich abgeschlossen");
 				result[a] = 0;
 				for(int h; h<=30; h++){
 					a++;
