@@ -713,7 +713,7 @@ void receivepacket() {
 					result[a] = 0;
 				}
 				printf("Empfang abgeschlossen und erfolgreich gespeichert\n");
-				string command = "python home/pi/python/uploader.py";
+				string command = "python /home/pi/python/uploader.py";
 				system(command.c_str());
 				printf("Senden erfolgreich abgeschlossen");
 				result[a] = 0;
