@@ -720,7 +720,7 @@ void receivepacket() {
 					
 					
 					if((help1<100)&(help2<100)&(help3<100)&(help4<100)&(help5<100)&(help6<100)&(help7<100)&(help8<100)&(help9<100)&(help10<100)){
-						int summe = (result[hzahler]+result[hzahler+1]+result[hzahler+2]+result[hzahler+3]+result[hzahler+4]+result[hzahler+5]+result[hzahler+6]+result[hzahler+7]+result[hzahler+8]+result[hzahler+9]+result[hzahler+10]+)/10;
+						int summe = (result[hzahler]+result[hzahler+1]+result[hzahler+2]+result[hzahler+3]+result[hzahler+4]+result[hzahler+5]+result[hzahler+6]+result[hzahler+7]+result[hzahler+8]+result[hzahler+9]+result[hzahler+10])/10;
 						result2[hzahler] = summe;
 					}
 					else{
@@ -756,7 +756,7 @@ void receivepacket() {
 				///////////////////////////////////////////////////////////////////////////////////////////////
 				
 				printf("now: %d-%d-%d %d:%d:%d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
-				n=sprintf(buffer, "/home/pi/cortus/ffd/messungmittelwert%d%d%d%d%d%d.txt", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+				n=sprintf(buffer, "/home/pi/cortus/ffd/messungDFilter%d%d%d%d%d%d.txt", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
 				
 				
 				
