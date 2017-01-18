@@ -19,7 +19,7 @@
 #include <cstdlib>
 #include <sys/time.h>
 #include <cstring>
-#include <stdlib>
+
 
 #include <sys/ioctl.h>
 #include <net/if.h>
@@ -728,9 +728,10 @@ void receivepacket() {
 					}
 					
 					hzahler++;
-				
+					
 				}
 				
+				result2[hzahler] = 1297;
 				
 				//////////////////////////////////////////////////////////////////////////////////////////////
 				
@@ -765,7 +766,7 @@ void receivepacket() {
 						printf("Datei kann nicht geschrieben werden");
 				}
 				}
-				int a;
+				
 				for(a = 0; result2[a]!=1297; a++){
 					fprintf(f, "%d\n", result2[a]);
 					result[a] = 0;
