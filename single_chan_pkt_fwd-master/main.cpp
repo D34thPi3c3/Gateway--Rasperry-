@@ -19,6 +19,7 @@
 #include <cstdlib>
 #include <sys/time.h>
 #include <cstring>
+#include <stdlib>
 
 #include <sys/ioctl.h>
 #include <net/if.h>
@@ -688,7 +689,7 @@ void receivepacket() {
 				result[rhelp] = 0;
 			}
 			
-			//printf("Erste erfolge wurden erzielt: Das Resultat ist %d \n", result);
+			
 						
 			if(result[rhelp]==1297){
 				printf("Juhu bis hierhin komme ich\n");
@@ -698,9 +699,47 @@ void receivepacket() {
 				
 				time_t t = time(NULL);
 				struct tm tm = *localtime(&t);
+				
+				//TESTCODE HIGH FREQUENZEN FILTERN	
+				int hzahler = 0;
+				int result2[10000] = {};
+				
+				while(result[hzahler]!=1297){
+					
+					int help1 = abs(result[hzahler]-result[hzahler+1]);
+					int help2 = abs(result[hzahler+1]-result[hzahler+2]);
+					int help3 = abs(result[hzahler+2]-result[hzahler+3]);
+					int help4 = abs(result[hzahler+3]-result[hzahler+4]);
+					int help5 = abs(result[hzahler+4]-result[hzahler+5]);
+					int help6 = abs(result[hzahler+5]-result[hzahler+6]);
+					int help7 = abs(result[hzahler+6]-result[hzahler+7]);
+					int help8 = abs(result[hzahler+7]-result[hzahler+8]);
+					int help9 = abs(result[hzahler+8]-result[hzahler+9]);
+					int help10 = abs(result[hzahler+9]-result[hzahler+10]);
+					
+					
+					
+					if((help1<100)&(help2<100)&(help3<100)&(help4<100)&(help5<100)&(help6<100)&(help7<100)&(help8<100)&(help9<100)&(help10<100)){
+						int summe = (help1+help2+help3+help4+help5+help6+help7+help8+help9+help10)/10;
+						result2[hzahler] = summe;
+					}
+					else{
+						result2[hzahler] = result[hzahler];
+					}
+					
+					hzahler++;
+				
+				}
+				
+				
+				//////////////////////////////////////////////////////////////////////////////////////////////
+				
 
 				printf("now: %d-%d-%d %d:%d:%d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
 				n=sprintf(buffer, "/home/pi/cortus/ffd/messung%d%d%d%d%d%d.txt", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+				
+				
+				
 				
 				if((f = fopen(buffer,"a"))==NULL){
 					if((f = fopen(buffer,"w"))==NULL){
@@ -712,6 +751,27 @@ void receivepacket() {
 					fprintf(f, "%d\n", result[a]);
 					result[a] = 0;
 				}
+				
+				///////////////////////////////////////////////////////////////////////////////////////////////
+				
+				printf("now: %d-%d-%d %d:%d:%d\n", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+				n=sprintf(buffer, "/home/pi/cortus/ffd/messungmittelwert%d%d%d%d%d%d.txt", tm.tm_year + 1900, tm.tm_mon + 1, tm.tm_mday, tm.tm_hour, tm.tm_min, tm.tm_sec);
+				
+				
+				
+				
+				if((f = fopen(buffer,"a"))==NULL){
+					if((f = fopen(buffer,"w"))==NULL){
+						printf("Datei kann nicht geschrieben werden");
+				}
+				}
+				int a;
+				for(a = 0; result2[a]!=1297; a++){
+					fprintf(f, "%d\n", result2[a]);
+					result[a] = 0;
+				}
+				
+				
 				printf("Empfang abgeschlossen und erfolgreich gespeichert\n");
 				string command = "python /home/pi/python/uploader.py";
 				system(command.c_str());
